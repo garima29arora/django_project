@@ -1,2 +1,2 @@
 # django_project
-A basic django project created with the help of cmd
+A basic django project development
