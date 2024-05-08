@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Confirm Delete</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container styles */
+        .container {
+            width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        /* Heading styles */
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Paragraph styles */
+        p {
+            margin-bottom: 20px;
+            color: #555;
+            font-size: 16px;
+        }
+
+        /* Form and button styles */
+        form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        input[type="submit"],
+        a {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        input[type="submit"] {
+            background-color: #f44336; /* Red color for delete button */
+        }
+
+        a {
+            background-color: #4CAF50; /* Green color for cancel button */
+        }
+
+        input[type="submit"]:hover,
+        a:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Confirm Delete</h1>
+        
+        <p>Are you sure you want to delete <strong>{{ user.name }}</strong> (<strong>{{ user.email }}</strong>)?</p>
+        
+        <form method="post">
+            {% csrf_token %}
+            <input type="submit" value="Yes, Delete">
+            <a href="{% url 'user_list' %}">Cancel</a>
+        </form>
+    </div>
+</body>
+
+</html>
